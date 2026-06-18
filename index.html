@@ -1,1 +1,346 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perruqueria Neo | Flaçà</title>
+    <style>
+        /* Estils Globals - Disseny Minimalista i Equilibrat */
+        :root {
+            --bg-color: #fafafa;
+            --text-color: #2c2c2c;
+            --accent-color: #bfa15f; /* Daurat elegant */
+            --card-bg: #ffffff;
+            --border-color: #eaeaea;
+        }
 
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 0;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            background-color: var(--card-bg);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        header p {
+            color: #777;
+            font-size: 1.1rem;
+        }
+
+        .rating-badge {
+            display: inline-block;
+            margin-top: 15px;
+            background: #f0ebe1;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: #8a6d3b;
+            font-weight: bold;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        section {
+            margin-bottom: 60px;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-left: 3px solid var(--accent-color);
+            padding-left: 10px;
+        }
+
+        /* Reixegat d'informació bàsica (Horari i Contacte) */
+        .grid-info {
+            display: block;
+        }
+        
+        .info-block {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 20px;
+        }
+
+        .info-item {
+            margin-bottom: 12px;
+            font-size: 1rem;
+        }
+
+        .info-item strong {
+            font-weight: 600;
+        }
+
+        /* Estils de l'Horari */
+        .horari-list {
+            list-style: none;
+            margin-top: 10px;
+        }
+
+        .horari-list li {
+            display: table;
+            width: 100%;
+            padding: 6px 0;
+            border-bottom: 1px dashed var(--border-color);
+        }
+
+        .horari-list li span {
+            display: table-cell;
+        }
+        .horari-list li span.dia { font-weight: 500; }
+        .horari-list li span.hores { text-align: right; color: #555; }
+
+        /* Galeria d'Imatges (Estil modern i net) */
+        .galeria {
+            display: block;
+        }
+
+        .galeria-item {
+            margin-bottom: 20px;
+        }
+
+        .galeria img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 6px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .galeria img:hover {
+            transform: translateY(-3px);
+            opacity: 0.95;
+        }
+
+        /* Ressenyes */
+        .review-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .review-header {
+            margin-bottom: 10px;
+        }
+
+        .review-author {
+            font-weight: 600;
+            font-size: 1.05rem;
+        }
+
+        .review-stars {
+            color: var(--accent-color);
+            margin: 5px 0;
+        }
+
+        .review-date {
+            font-size: 0.85rem;
+            color: #999;
+        }
+
+        .review-body {
+            font-size: 0.95rem;
+            color: #444;
+            margin-bottom: 15px;
+        }
+
+        .owner-response {
+            background: #f9f9f9;
+            border-left: 2px solid #ccc;
+            padding: 12px 15px;
+            font-size: 0.9rem;
+            margin-top: 10px;
+            color: #555;
+        }
+
+        .owner-response strong {
+            color: #222;
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 0.9rem;
+            color: #888;
+            border-top: 1px solid var(--border-color);
+            background: var(--card-bg);
+        }
+
+        /* Adaptació de la graella per a pantalles grans (Ordinadors) */
+        @media (min-width: 768px) {
+            .grid-info {
+                display: table;
+                width: 100%;
+                table-layout: fixed;
+                border-collapse: separate;
+                border-spacing: 20px 0;
+            }
+            .info-block {
+                display: table-cell;
+                vertical-align: top;
+                margin-bottom: 0;
+            }
+            .galeria {
+                display: table;
+                width: 100%;
+                table-layout: fixed;
+                border-collapse: separate;
+                border-spacing: 15px 0;
+            }
+            .galeria-item {
+                display: table-cell;
+            }
+            .galeria img {
+                margin-bottom: 0;
+                height: 260px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Perruqueria Neo</h1>
+        <p>Servei de perruqueria a Flaçà</p>
+        <div class="rating-badge">★ 4,9 (62 ressenyes a Google)</div>
+    </header>
+
+    <main>
+        <!-- Secció de Contacte i Horari -->
+        <section class="grid-info">
+            <!-- Columna Contacte -->
+            <div class="info-block">
+                <h2>Contacte i Informació</h2>
+                <div class="info-item"><strong>Adreça:</strong> Carrer Comerç, 107, 17463 Flaçà, Girona</div>
+                <div class="info-item"><strong>Telèfon:</strong> 972 48 90 86</div>
+                <div class="info-item"><strong>Xarxes:</strong> <a href="https://facebook.com" target="_blank" style="color: var(--accent-color); text-decoration: none;">facebook.com</a></div>
+                <div class="info-item" style="margin-top: 15px; font-size: 0.9rem; color: #666;">
+                    🌱 Ambient <strong>LGBTQ+ friendly</strong>
+                </div>
+            </div>
+
+            <!-- Columna Horari -->
+            <div class="info-block">
+                <h2>Horari d'Obertura</h2>
+                <ul class="horari-list">
+                    <li><span class="dia">Dilluns</span> <span class="hores">Tancat</span></li>
+                    <li><span class="dia">Dimarts</span> <span class="hores">9:00–13:00 / 15:00–20:00</span></li>
+                    <li><span class="dia">Dimecres</span> <span class="hores">9:00–13:00 / 15:00–20:00</span></li>
+                    <li><span class="dia">Dijous</span> <span class="hores">9:00–13:00 / 15:00–20:00</span></li>
+                    <li><span class="dia">Divendres</span> <span class="hores">9:00–18:00 (Continuat)</span></li>
+                    <li><span class="dia">Dissabte</span> <span class="hores">8:30–14:00</span></li>
+                    <li><span class="dia">Diumenge</span> <span class="hores">Tancat</span></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Secció de Fotos amb imatges lliures de drets d'autor -->
+        <section>
+            <h2>El nostre espai</h2>
+            <div class="galeria">
+                <div class="galeria-item">
+                    <!-- Foto 1: Interior de perruqueria minimalista -->
+                    <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=600&q=80" alt="Interior modern de la perruqueria">
+                </div>
+                <div class="galeria-item">
+                    <!-- Foto 2: Detall de tisores i estris tallant cabell -->
+                    <img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=600&q=80" alt="Estris professionals de perruqueria">
+                </div>
+                <div class="galeria-item">
+                    <!-- Foto 3: Servei/Rentat o estilisme -->
+                    <img src="https://images.unsplash.com/photo-1620331713542-79822b77c454?auto=format&fit=crop&w=600&q=80" alt="Detall de raspallat i estilisme">
+                </div>
+            </div>
+        </section>
+
+        <!-- Secció de Ressenyes -->
+        <section>
+            <h2>Què diuen els nostres clients</h2>
+
+            <!-- Ressenya 1 -->
+            <div class="review-card">
+                <div class="review-header">
+                    <span class="review-author">Marta Felip</span>
+                    <div class="review-stars">★★★★★</div>
+                    <span class="review-date">Fa 4 mesos</span>
+                </div>
+                <div class="review-body">
+                    "Fan molt bona feina i son molt amables, un encant. Hi tornaré. Molt recomanable."
+                </div>
+                <div class="owner-response">
+                    <strong>Resposta del propietari:</strong>
+                    "Moltes gràcies Marta!! Fins aviat."
+                </div>
+            </div>
+
+            <!-- Ressenya 2 -->
+            <div class="review-card">
+                <div class="review-header">
+                    <span class="review-author">Sonia Verges</span>
+                    <div class="review-stars">★★★★★</div>
+                    <span class="review-date">Fa 2 mesos</span>
+                </div>
+                <div class="review-body">
+                    "Molt amables, professionals i a bons preus"
+                </div>
+                <div class="owner-response">
+                    <strong>Resposta del propietari:</strong>
+                    "Moltes gràcies Sònia, fins aviat!"
+                </div>
+            </div>
+
+            <!-- Ressenya 3 -->
+            <div class="review-card">
+                <div class="review-header">
+                    <span class="review-author">Claudia Fernandez</span> <span style="font-size:0.8rem; color:#777;">(Local Guide)</span>
+                    <div class="review-stars">★★★★★</div>
+                    <span class="review-date">Fa 2 anys</span>
+                </div>
+                <div class="review-body">
+                    "Excelente atención muy profesionales Carlos amables y divertidos, y no hablar del excelente trabajo que hacen😍👏🏻"
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Perruqueria Neo. Tots els drets reservats.</p>
+    </footer>
+
+</body>
+</html>
